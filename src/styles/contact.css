@@ -1,0 +1,146 @@
+/* =========================================================
+   EXECUTIVE MINIMALIST CONTACT SECTION (IMAGE 1 REFERENCE)
+========================================================= */
+
+.contact {
+  padding: 5rem 0 3.5rem;
+  background: var(--bg-main);
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-header {
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+}
+
+.contact-header .section-title {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  font-size: clamp(2.2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0F172A;
+  margin-bottom: 12px;
+}
+
+.contact-header .section-subtitle {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 auto;
+}
+
+/* Minimalist Vertical Contact List Stack */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(4px);
+}
+
+.item-icon {
+  font-size: 1.35rem;
+  color: #4F46E5;
+  width: 28px;
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.2;
+}
+
+.item-value {
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+/* Social Media Section */
+.contact-social-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.social-heading {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 16px;
+}
+
+.contact-social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.minimal-social-link {
+  font-size: 1.25rem;
+  color: #4F46E5;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.minimal-social-link:hover {
+  color: #4338CA;
+  transform: translateY(-2px) scale(1.15);
+}
+
+/* Minimalist Footer */
+.contact-footer {
+  width: 100%;
+  padding-top: 2rem;
+  border-top: 1px solid #E2E8F0;
+}
+
+.contact-footer p {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #64748B;
+}
+
+@media (max-width: 640px) {
+  .contact-list {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,535 @@
+@import "./styles/navbar.css";
+@import "./styles/hero.css";
+@import "./styles/about.css";
+@import "./styles/skills.css";
+@import "./styles/experience.css";
+@import "./styles/projects.css";
+@import "./styles/contact.css";
+@import "./styles/achievements.css";
+
+/* =========================================================
+   FAANG/MAANG EXECUTIVE DESIGN SYSTEM
+========================================================= */
+
+:root {
+  /* Font Family Tokens */
+  --font-heading: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Pristine Canvas Backgrounds */
+  --bg-main: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-subtle: #F8FAFC;
+  --bg-card: #FFFFFF;
+
+  /* Refined Slate Borders */
+  --border-subtle: rgba(226, 232, 240, 0.9);
+  --border-hover: #6366F1;
+  --border-focus: #4F46E5;
+
+  /* Ultra-High Contrast Executive Typography Hierarchy */
+  --text-primary: #0F172A;
+  --text-secondary: #1E293B;
+  --text-body: #1E293B;
+  --text-muted: #475569;
+
+  /* Primary & Accent Palette */
+  --accent-indigo: #4F46E5;
+  --accent-indigo-hover: #4338CA;
+  --accent-indigo-soft: #EEF2FF;
+  --accent-indigo-border: #C7D2FE;
+  --accent-indigo-text: #3730A3;
+
+  --accent-emerald: #059669;
+  --accent-emerald-soft: #ECFDF5;
+
+  --accent-sky: #0EA5E9;
+  --accent-violet: #7C3AED;
+
+  /* Gradients */
+  --gradient-heading: linear-gradient(135deg, #4F46E5 0%, #0EA5E9 100%);
+  --gradient-pill-hover: linear-gradient(135deg, #4F46E5 0%, #0EA5E9 100%);
+  --gradient-shimmer: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0) 100%);
+  --gradient-divider: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.2) 30%, rgba(14, 165, 233, 0.2) 70%, transparent);
+
+  /* Multi-Layered FAANG Glass Elevations & Glows */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.02);
+  --shadow-hover: 0 20px 40px -10px rgba(99, 102, 241, 0.18), 0 0 25px rgba(14, 165, 233, 0.12);
+  --shadow-button: 0 4px 14px rgba(79, 70, 229, 0.25);
+
+  /* Radius & Transitions */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --container: 1200px;
+}
+
+/* =========================================================
+   RESET & BASE STYLES
+========================================================= */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  background-color: var(--bg-main);
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Active Press Compression */
+button:active,
+a:active,
+.card:active,
+.skill-badge:active {
+  transform: scale(0.97) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 20px;
+  border: 2px solid #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-indigo);
+}
+
+/* =========================================================
+   SECTION SPACING, GRADIENT DIVIDERS & AMBIENT GLOWS
+========================================================= */
+
+section {
+  width: 100%;
+  padding: 4.5rem 0;
+  position: relative;
+  background: var(--bg-main);
+  overflow: hidden;
+}
+
+/* Gradient Section Divider Line connecting sections */
+section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: var(--gradient-divider);
+  pointer-events: none;
+}
+
+/* Ambient Floating Gradient Mesh Blobs */
+section::before {
+  content: "";
+  position: absolute;
+  top: -15%;
+  right: -5%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  animation: floatMesh 16s ease-in-out infinite alternate;
+}
+
+@keyframes floatMesh {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -25px) scale(1.08);
+  }
+  100% {
+    transform: translate(-25px, 30px) scale(0.94);
+  }
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   ULTRA-HIGH CONTRAST TYPOGRAPHY & UTILITY CLASSES
+========================================================= */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+p {
+  color: var(--text-body);
+  line-height: 1.68;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3.2vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  background: var(--gradient-heading);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.section-subtitle {
+  max-width: 740px;
+  color: var(--text-secondary);
+  font-size: 1.04rem;
+  font-weight: 600;
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #4F46E5 0%, #0EA5E9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Interactive Technology Pill Badges */
+.tech-pill,
+.skill-badge {
+  background: #EEF2FF;
+  color: #3730A3;
+  border: 1px solid #C7D2FE;
+  font-weight: 600;
+  font-size: 0.84rem;
+  padding: 5px 13px;
+  border-radius: 9999px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-pill:hover,
+.skill-badge:hover {
+  background: linear-gradient(135deg, #4F46E5 0%, #0EA5E9 100%);
+  color: #FFFFFF;
+  border-color: transparent;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+}
+
+/* =========================================================
+   POLISHED SECTION SCROLL REVEAL (fade-in-up & slide-in)
+========================================================= */
+
+section.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+section.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered card entrance inside active section */
+section.reveal .card, 
+section.reveal .glass-card, 
+section.reveal .project-card,
+section.reveal .skill-card,
+section.reveal .about-card,
+section.reveal .achievement-card,
+section.reveal .timeline-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+section.reveal.active .card:nth-child(1),
+section.reveal.active .glass-card:nth-child(1),
+section.reveal.active .project-card:nth-child(1),
+section.reveal.active .skill-card:nth-child(1),
+section.reveal.active .about-card:nth-child(1),
+section.reveal.active .achievement-card:nth-child(1),
+section.reveal.active .timeline-card:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+
+section.reveal.active .card:nth-child(2),
+section.reveal.active .glass-card:nth-child(2),
+section.reveal.active .project-card:nth-child(2),
+section.reveal.active .skill-card:nth-child(2),
+section.reveal.active .about-card:nth-child(2),
+section.reveal.active .achievement-card:nth-child(2),
+section.reveal.active .timeline-card:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+
+section.reveal.active .card:nth-child(3),
+section.reveal.active .glass-card:nth-child(3),
+section.reveal.active .project-card:nth-child(3),
+section.reveal.active .skill-card:nth-child(3),
+section.reveal.active .about-card:nth-child(3),
+section.reveal.active .achievement-card:nth-child(3),
+section.reveal.active .timeline-card:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+
+section.reveal.active .card:nth-child(4),
+section.reveal.active .glass-card:nth-child(4),
+section.reveal.active .project-card:nth-child(4),
+section.reveal.active .skill-card:nth-child(4),
+section.reveal.active .about-card:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+
+section.reveal.active .project-card:nth-child(5),
+section.reveal.active .skill-card:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+
+/* =========================================================
+   SOLID CRISP PURE WHITE CARDS & FAANG 3D HOVER LIFT
+========================================================= */
+
+button,
+a,
+.card,
+.glass-card,
+.skill-card,
+.project-card,
+.stat-card,
+.about-card,
+.achievement-card,
+.timeline-card,
+.contact-card {
+  transition: var(--transition);
+}
+
+.card,
+.glass-card,
+.skill-card,
+.project-card,
+.stat-card,
+.about-card,
+.achievement-card,
+.timeline-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* 3D Hover Lift & Vibrant Gradient Border Glow */
+.card:hover,
+.glass-card:hover,
+.skill-card:hover,
+.project-card:hover,
+.stat-card:hover,
+.about-card:hover,
+.achievement-card:hover,
+.timeline-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.18), 0 0 25px rgba(14, 165, 233, 0.12);
+}
+
+/* =========================================================
+   BUTTON SHIMMER SWEEPS
+========================================================= */
+
+.btn-primary,
+.demo-btn,
+.credential-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after,
+.demo-btn::after,
+.credential-button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--gradient-shimmer);
+  transform: rotate(30deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::after,
+.demo-btn:hover::after,
+.credential-button:hover::after {
+  opacity: 1;
+  animation: shimmerSweep 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translate(-100%, -100%) rotate(30deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(30deg);
+  }
+}
+
+/* =========================================================
+   FLOATING BACK-TO-TOP BUTTON & TOAST NOTIFICATION
+========================================================= */
+
+#back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
+  color: #FFFFFF;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.5);
+}
+
+#back-to-top svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Toast Notification for Clipboard Copying */
+#toast-notification {
+  position: fixed;
+  bottom: 88px;
+  right: 28px;
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#toast-notification.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#toast-notification svg {
+  width: 18px;
+  height: 18px;
+  color: #22C55E;
+}
+
+/* =========================================================
+   RESPONSIVE LAYOUT SYSTEM
+========================================================= */
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 3.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    margin-bottom: 24px;
+    font-size: 0.96rem;
+  }
+
+  #back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+  }
+}

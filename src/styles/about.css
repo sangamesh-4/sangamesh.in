@@ -1,0 +1,61 @@
+/* =========================================================
+   EXECUTIVE ABOUT SECTION
+========================================================= */
+
+.about {
+  padding: 4.5rem 0;
+  background: var(--bg-main);
+}
+
+.about-description {
+  max-width: 780px;
+  color: #1E293B;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.about-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.about-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: #6366F1;
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.2), 0 0 25px rgba(14, 165, 233, 0.15);
+}
+
+.about-card h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent-indigo);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.about-card span {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+@media (max-width: 768px) {
+  .about-description {
+    font-size: 0.98rem;
+    margin-bottom: 28px;
+  }
+}
