@@ -99,8 +99,10 @@ export function Hero() {
             <div class="hero-visual">
 
                 <div class="avatar-wrapper">
-                    <!-- Ambient Tilted Backdrop Card -->
-                    <div class="tilted-backdrop"></div>
+                    <!-- Ambient Tilted Backdrop Card (Clipped to top half) -->
+                    <div class="tilted-backdrop-container">
+                        <div class="tilted-backdrop"></div>
+                    </div>
                     
                     <!-- Circular Avatar Mask -->
                     <div class="avatar-circle">

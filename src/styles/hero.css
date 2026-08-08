@@ -263,25 +263,40 @@
   align-items: center;
 }
 
+.tilted-backdrop-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .tilted-backdrop {
   position: absolute;
-  width: 230px;
-  height: 230px;
+  width: 210px;
+  height: 210px;
   background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
-  border-radius: 36px;
+  border-radius: 28px;
   opacity: 0.85;
-  z-index: 1;
-  box-shadow: 0 16px 36px rgba(59, 130, 246, 0.3);
-  animation: rotateBackdrop 18s linear infinite;
+  box-shadow: -12px 12px 30px rgba(59, 130, 246, 0.3);
+  /* Pivot from the center-left so it stays anchored on the left side */
+  transform-origin: 30% 50%;
+  animation: leftSideOscillate 6s ease-in-out infinite alternate;
   will-change: transform;
 }
 
-@keyframes rotateBackdrop {
+/* Smooth subtle pendulum swing locked to the left side */
+@keyframes leftSideOscillate {
   0% {
-    transform: rotate(0deg);
+    transform: translate(-35px, -15px) rotate(-28deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translate(-30px, -10px) rotate(-18deg);
   }
 }
 
