@@ -31,6 +31,7 @@ export function Hero() {
                         target="_blank"
                         rel="noopener noreferrer"
                         class="btn-primary btn-download"
+                        download="Sangamesh_H_Resume.pdf"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
