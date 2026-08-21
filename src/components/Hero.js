@@ -123,11 +123,11 @@ export function Hero() {
                 <!-- Quick Stats 2-Card Row -->
                 <div class="hero-quick-stats">
                     <div class="stat-mini-card">
-                        <span class="stat-val">1+</span>
+                        <span class="stat-val">0-1</span>
                         <span class="stat-lbl">Years Experience</span>
                     </div>
                     <div class="stat-mini-card">
-                        <span class="stat-val">5+</span>
+                        <span class="stat-val">7+</span>
                         <span class="stat-lbl">Projects Completed</span>
                     </div>
                 </div>
